@@ -4,7 +4,7 @@ use Aws\Rds\RdsClient;
 
 /*
 $link = mysqli_connect("itmo544grh-mp1.ckh0wwv6itjw.us-west-2.rds.amazonaws.com","rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
-/* check connection */
+ check connection 
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
@@ -29,7 +29,8 @@ $con=$link->query($sql);
 $client = RdsClient::factory(array(
 'version' =>'latest',
 'region'  => 'us-west-2'
-));*/
+));
+*/
 
 $client = RdsClient::factory(array(
 'version' =>'latest',
@@ -60,7 +61,7 @@ if ($delete_table) {
 else {
         echo "error!!";
 }
-
+*/
 $create_table = 'CREATE TABLE IF NOT EXISTS items  
 (
     id INT NOT NULL AUTO_INCREMENT,
@@ -75,7 +76,7 @@ $create_table = 'CREATE TABLE IF NOT EXISTS items
     issubscribed INT NOT NULL,
     timestamp datetime,
     PRIMARY KEY(id)
-)';*/
+)';
 $create_tbl = $link->query($create_table);
 if ($create_table) {
 	echo "Table is created or No error returned.";
