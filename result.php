@@ -45,8 +45,14 @@ $client = RdsClient::factory(array(
 'region' => 'us-west-2'
 ));
 
+$result1 = $client->describeDBInstances(array(
 
-$link = mysqli_connect("itmo544grh-mp1.ckh0wwv6itjw.us-west-2.rds.amazonaws.com","rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
+  'DBInstanceIdentifier' => 'itmo544grh-mp1',
+
+));
+$endpoint = $result1['DBInstances'][0]['Endpoint']['Address'];
+print "============\n". $endpoint . "================\n";
+$link = mysqli_connect($endpoint,"rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
 /* check connection */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
@@ -69,7 +75,7 @@ $filename = basename($_FILES['userfile']['name']);
 $s3finishedurl = "none";
 $status=0;
 $issubscribed=0;
-$date_time = time()
+$date_time = time();
 $stmt->bind_param("sssssii",$name,$email,$phone,$filename,$s3rawurl,$s3finishedurl,$status,$issubscribed,$date_time);
 if(!$stmt->execute()){
 	echo "Execute failed:(" . $stmt->errno . ")" . $stmt->error;
