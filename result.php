@@ -44,17 +44,8 @@ $client = RdsClient::factory(array(
 'version' =>'latest',	
 'region' => 'us-west-2'
 ));
-//$result = $client->describeDBInstances(array(
-//	'DBInstanceIdentifier'=>'itmo544-ght-db',
-//));
-//$endpoint = "";
-//foreach ($result->getPath('DBInstances/*/Endpoint/Address')as $ep){
-	//do something with the meessage
-//	echo "==========". $ep ."========";
-//	$endpoint = $ep;
-//}
-	//echo "begin database";
-//$link = mysqli_connect($endpoint,"guhaotian","909690ght","guhaotiandb") or die("Error " . mysqli_error($link));
+
+
 $link = mysqli_connect("itmo544grh-mp1.ckh0wwv6itjw.us-west-2.rds.amazonaws.com","rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
 /* check connection */
 if (mysqli_connect_errno()) {
