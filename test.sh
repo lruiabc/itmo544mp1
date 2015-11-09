@@ -54,5 +54,6 @@ aws cloudwatch put-metric-alarm --alarm-name cpu-mi --alarm-description "Alarm w
 #      fi  
 #     done
 #fi
-
+aws rds wait db-instance-available --db-instance-identifier itmo544grh-mp1
+aws rds create-db-instance-read-replica --db-instance-identifier itmo544-rui-sdb  --source-db-instance-identifier itmo544grh-mp1 --db-instance-class db.t2.micro
 
