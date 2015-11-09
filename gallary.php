@@ -14,27 +14,24 @@ $email = $_POST["email"];
 echo $email;
 require 'vendor/autoload.php';
 use Aws\Rds\RdsClient;
+
 $client = RdsClient::factory(array(
 'version' =>'latest',
 'region'  => 'us-west-2'
+
 ));
-//$result = $client->describeDBInstances(array(
-  //  'DBInstanceIdentifier' => 'itmo544jrhdb',
-//));
-//$endpoint = "";
-//foreach ($result->getPath('DBInstances/*/Endpoint/Address') as $ep) {
-    // Do something with the message
-  //  echo "============". $ep . "================";
-    //$endpoint = $ep;
-//}   
-//echo "begin database";
-//$link = mysqli_connect($endpoint,"controller","ilovebunnies","itmo544db") or die("Error " . mysqli_error($link));
-/* check connection */
+$result = $client->describeDBInstances(array(
+
+  'DBInstanceIdentifier' => 'itmo544grh-mp1',
+
+));
+$endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
+print "============\n". $endpoint . "================\n";
 //if (mysqli_connect_errno()) {
   //  printf("Connect failed: %s\n", mysqli_connect_error());
     //exit();
 //}
-$link = mysqli_connect("itmo544-ght-db.c4bvwzwqz1hy.us-west-2.rds.amazonaws.com","guhaotian","909690ght","guhaotiandb") or die("Error " . mysqli_error($link));
+$link = mysqli_connect($endpoint,"guhaotian","909690ght","guhaotiandb") or die("Error " . mysqli_error($link));
 /* check connection */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
