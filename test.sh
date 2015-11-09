@@ -50,7 +50,7 @@ aws cloudwatch put-metric-alarm --alarm-name cpu-mi --alarm-description "Alarm w
 #     then 
 #      echo "db exists"
 #     else
-     aws rds create-db-instance --db-instance-identifier itmo544grh-mp1 --db-instance-class db.t1.micro --engine MySQL --master-username rui --master-user-password 110224Fish --allocated-storage 5
+     aws rds create-db-instance --db-instance-identifier itmo544grh-mp1 --db-name itmoruidb --db-instance-class db.t1.micro --engine MySQL --master-username rui --master-user-password 110224Fish --allocated-storage 5
 #      fi  
 #     done
 #fi
