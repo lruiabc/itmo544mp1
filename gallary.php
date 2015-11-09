@@ -31,7 +31,7 @@ print "============\n". $endpoint . "================\n";
   //  printf("Connect failed: %s\n", mysqli_connect_error());
     //exit();
 //}
-$link = mysqli_connect($endpoint,"guhaotian","909690ght","guhaotiandb") or die("Error " . mysqli_error($link));
+$link = mysqli_connect($endpoint,"rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
 /* check connection */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
