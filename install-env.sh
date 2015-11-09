@@ -2,7 +2,7 @@
 sudo apt-get update -y
 sudo apt-get install -y 
 
-git clone https://github.com/lruiabc/itmo-544-444-mp1.git
+git clone https://github.com/lruiabc/itmo544mp1.git
 
 curl -sS http://getcomposer.org/installer | php
 
@@ -15,7 +15,7 @@ php composer.phar require aws/aws-sdk-php
 
 chmod 755 vendor
 
-sudo mv ./../itmo-544-444-mp1/vendor /var/www/html/vendor
+sudo mv ./../itmo544mp1/vendor /var/www/html/vendor
 
 
 echo "hello!" >/tmp/hello.txt
