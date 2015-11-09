@@ -6,7 +6,7 @@ print "Hello world!";
 <title>Hello app</title>
 </head>
 <body>
-<form enctype="multipart/form-data" action="result.php" method="POST">
+<form enctype="multipart/form-data" action="submit.php" method="POST">
 	<input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
 	send this file:<input name="userfile" type="file" /><br>
 Enter name of user:<input type="name" name="uname"><br>
