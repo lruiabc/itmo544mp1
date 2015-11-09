@@ -1,12 +1,22 @@
 <html>
 
-<head><title>Gallery</title>
+<head>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("p").click(function(){
+  $(this).hide();
+  });
+});
+</script>
+<title>Gallery</title>
 
 </head>
 
 <body>
 
-
+<p>click me, I will hide!</p>
 
 <?php
 session_start();
@@ -26,11 +36,8 @@ $result = $client->describeDBInstances(array(
 
 ));
 $endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
-print "============\n". $endpoint . "================\n";
-//if (mysqli_connect_errno()) {
-  //  printf("Connect failed: %s\n", mysqli_connect_error());
-    //exit();
-//}
+print "=". $endpoint . "=";
+
 $link = mysqli_connect($endpoint,"rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
 /* check connection */
 if (mysqli_connect_errno()) {
