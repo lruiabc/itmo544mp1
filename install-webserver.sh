@@ -9,6 +9,7 @@ mv ./../itmo544mp1/images /var/www/html/images
 mv ./../itmo544mp1/vendor /var/www/html/vendor
 mv ./../itmo544mp1/index.html /var/www/html
 mv ./../itmo544mp1/*.php /var/www/html
+mv ./../itmo544mp1/gallery.asp /var/www/html
 
 curl -sS http://getcomposer.org/installer | php
 php composer.phar require aws/aws-sdk-php
