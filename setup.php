@@ -37,7 +37,6 @@ $create_table = 'CREATE TABLE IF NOT EXISTS items
     jpg_filename VARCHAR(255),
     status INT NOT NULL,
     issubscribed INT NOT NULL,
-    timestamp datetime,
     PRIMARY KEY(id)
 )';
 $create_tbl = $link->query($create_table);
