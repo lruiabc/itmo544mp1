@@ -16,7 +16,7 @@ sudo php composer.phar require aws/aws-sdk-php
 
 
 
-sudo mv ./../itmo544mp1/vendor /var/www/html/vendor
+sudo mv ./vendor /var/www/html/vendor
 
 echo "hello!" >/tmp/hello.txt
 
