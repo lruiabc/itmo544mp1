@@ -1,29 +1,35 @@
 <?php
 
-date_default_timezone_set('America/Chicago');
+
 //start the session
 session_start();
 //echo $_FILES;
 echo $_POST['uname'];
 echo $_POST['useremail'];
 echo $_POST['phone'];
+
 $uploaddir='/tmp/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 echo '<pre>';
+
 if(move_uploaded_file($_FILES['userfile']['tmp_name'],$uploadfile)){
 	echo "File is calid, and was successfully uploaded.\n";
 }else{
 	echo "Possible file upload attack!\n";
 }
+
 echo 'Here is some more debugging info:';
 print_r($_FILES);
+
 print "</pre>";
 require 'vendor/autoload.php';
 use Aws\S3\S3Client;
+
 $client = S3Client::factory(array(
 'version' =>'latest',
 'region'  => 'us-west-2'
 ));
+
 $bucket = uniqid("php-jrh-",false);
 $result = $client->createBucket(array(
 	'Bucket'=> $bucket
