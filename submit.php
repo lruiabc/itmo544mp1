@@ -39,13 +39,18 @@ $result = $client->putObject(array(
 $url = $result['ObjectURL'];
 echo $url;
 
-
-$result1 = $client->describeDBInstances(array(
-
-  'DBInstanceIdentifier' => 'itmo544grh-mp1',
-
+use Aws\Rds\RdsClient;
+$client = RdsClient::factory(array(
+'version' =>'latest',	
+'region' => 'us-west-2'
 ));
-$endpoint = $result1['DBInstances'][0]['Endpoint']['Address'];
+$result = $client->describeDBInstances(array(
+  'DBInstanceIdentifier' => 'itmo544grh-mp1',
+));
+
+
+
+$endpoint = $result['DBInstances'][0]['Endpoint']['Address'];
 print "============\n". $endpoint . "================\n";
 $link = mysqli_connect($endpoint,"rui","110224Fish","itmoruidb") or die("Error " . mysqli_error($link));
 /* check connection */
